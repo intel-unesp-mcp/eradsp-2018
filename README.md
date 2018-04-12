@@ -1,4 +1,4 @@
-# eradsp-2018 - Hands-on
+# ERAD-SP 2018 - Hands-on
 
 On your desktop/workstation, open a terminal or command line console and use the command ssh to login on the Skylake server and KNL Server as user traineeN (N = 01 … 20; please check with the teaching assistant which number has been assigned to you): 
  
