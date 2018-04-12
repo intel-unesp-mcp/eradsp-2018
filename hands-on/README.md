@@ -49,12 +49,12 @@ lstopo
 
 Compile Option Price 
 ```
-icpc -ltbbmalloc -xHOST -openmp -g -O3 -ipo -restrict -fimf-precision=low -fimf-domain-exclusion=31 -fno-alias -qopt-report=5  -DCOMPILER_VERSION=\""icpc-17.0.1"\" -o am_call_vp am_call.cpp
+make am_call_vp
 ```
 
 Run application on KNL and on Skylake
 ```
-./am_call_vp
+time ./am_call_vp 
 ```
 
 ## 1.5 Transposition
