@@ -76,7 +76,7 @@ am_call_sp: am_call.cpp
 	$(CXX) $(LDFLAGS) -xHOST -openmp -DSCALAR -no-vec -unroll0 $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
 
 am_call_vp: am_call.cpp 
-	$(CXX) $(LDFLAGS) -xHOST -openmp $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
+	$(CXX) $(LDFLAGS) -xHOST -qopenmp $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
 
 am_call_original: am_call_original.cpp 
 	$(CXX) $(LDFLAGS) -xHOST $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^

@@ -192,7 +192,7 @@ void main()
 #ifdef SCALAR
 #else
 #pragma vector nontemporal (CallResult)
-#pragma simd
+#pragma omp simd
 #pragma vector aligned
 #endif
 	for (int opt = 0; opt < OptPerThread; opt++)

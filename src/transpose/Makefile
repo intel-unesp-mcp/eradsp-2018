@@ -1,7 +1,7 @@
 CXX = icpc
 #CXXFLAGS = -g -O3 -fopenmp -DMETHOD=2 -opt-report5 -lmemkind -xhost
-CXXFLAGS = -g -O3 -fopenmp -DMETHOD=2 -opt-report5 -lmemkind -xhost -qopt-prefetch=5
-#CXXFLAGS = -g -O3 -fopenmp -DMETHOD=2 -opt-report5 -lmemkind -xAVX2 -qopt-prefetch=5
+CXXFLAGS = -g -O3 -fopenmp -DMETHOD=2 -qopt-report5 -lmemkind -xhost -qopt-prefetch=5
+#CXXFLAGS = -g -O3 -fopenmp -DMETHOD=2 -qopt-report5 -lmemkind -xAVX2 -qopt-prefetch=5
 #icc -xCORE-AVX512 -O3 -qopt-prefetch=5 -vec-threshold0 -S -qopt-report-embed indirect.c 
 
 MICFLAGS  = 

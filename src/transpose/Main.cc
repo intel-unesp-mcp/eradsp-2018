@@ -5,7 +5,7 @@
 #include <cmath>
 #include <omp.h>
 #include "Transpose.h"
-#include <hbwmalloc.h>
+//#include <hbwmalloc.h>
 
 void InitMatrix(FTYPE* A, FTYPE* B,const int n) {
 
@@ -66,9 +66,9 @@ int main(int argc, char** argv){
   const int nSizes = 7;    // How many matrix sizes to test
 
   // Matrix data container, aligned on a 64-byte boundary
-  //FTYPE* A = (FTYPE*)_mm_malloc(n*n*sizeof(FTYPE), 64);
+  FTYPE* A = (FTYPE*)_mm_malloc(n*n*sizeof(FTYPE), 64);
   FTYPE* B = (FTYPE*)_mm_malloc(n*n*sizeof(FTYPE), 64);
-  FTYPE* A = (FTYPE*)hbw_malloc(n*n*sizeof(FTYPE));
+  //FTYPE* A = (FTYPE*)hbw_malloc(n*n*sizeof(FTYPE));
   //FTYPE* B = (FTYPE*)hbw_malloc(n*n*sizeof(FTYPE));
 
   const size_t nCacheFlush = ((size_t)n*(size_t)n*sizeof(FTYPE) < (1L<<27L) ? 1L << 27L : 1L);
@@ -129,9 +129,9 @@ int main(int argc, char** argv){
 
   free(cacheFlush);
 
-  //_mm_free(A);
+  _mm_free(A);
   _mm_free(B);
-  hbw_free(A);
+  //hbw_free(A);
   //hbw_free(B);
 
 }
