@@ -47,7 +47,35 @@ lstopo
 
 ## 1.4 Option Price
 
+Compile Option Price 
+```
+icpc -ltbbmalloc -xHOST -openmp -g -O3 -ipo -restrict -fimf-precision=low -fimf-domain-exclusion=31 -fno-alias -qopt-report=5  -DCOMPILER_VERSION=\""icpc-17.0.1"\" -o am_call_vp am_call.cpp
+```
+
+Run application on KNL and on Skylake
+```
+./am_call_vp
+```
+
 ## 1.5 Transposition
+
+Run transposition using MCDRAM on KNL
+
+```
+numactl -m 0,1,2,3 ./runme-CPU 30000 50
+```
+
+Run transposition using DRAM on KNL
+```
+numactl -m 4,5,6,7 ./runme-CPU 30000 50
+```
+
+Run transposition on Skylake
+```
+./runme-CPU 30000 50
+```
+
+What execution presents the best execution time?
 
 # 2. Offload
 
