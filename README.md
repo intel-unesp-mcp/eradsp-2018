@@ -43,13 +43,11 @@ The utility lstopo shows a hierarchical map of key computing elements, such as: 
 lstopo
 ```
 
+**How many levels contains the memory systems? What is the size of each level?**
+
 ## 1.4 Option Price
 
 ## 1.5 Transposition
-
-
-**How many levels contains the memory systems? What is the size of each level?**
-
 
 # 2. Offload
 
