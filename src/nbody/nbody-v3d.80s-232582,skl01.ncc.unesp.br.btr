@@ -1,0 +1,16 @@
+
+nbody-v3d:232582 terminated with signal 11 at PC=0 SP=7ffdeecfd6b8.  Backtrace:
+/lib64/libinfinipath.so.4(+0x419c)[0x7efe6bc8a19c]
+/lib64/libpthread.so.0(+0xf5e0)[0x7efe6fb685e0]
+fe6d11415d]
+/lib64/libcoi_host.so.0(+0x32444)[0x7efe6d114444]
+/lib64/libcoi_host.so.0(+0x32518)[0x7efe6d114518]
+/lib64/libc.so.6(+0x35270)[0x7efe6f7cb270]
+/lib64/libpthread.so.0(pthread_cond_wait+0xc5)[0x7efe6fb64945]
+/opt/intel/compilers_and_libraries_2018.1.163/linux/compiler/lib/intel64/libiomp5.so(+0xc9b77)[0x7efe702acb77]
+/opt/intel/compilers_and_libraries_2018.1.163/linux/compiler/lib/intel64/libiomp5.so(+0x58f13)[0x7efe7023bf13]
+/opt/intel/compilers_and_libraries_2018.1.163/linux/compiler/lib/intel64/libiomp5.so(+0x5a556)[0x7efe7023d556]
+/opt/intel/compilers_and_libraries_2018.1.163/linux/compiler/lib/intel64/libiomp5.so(+0x92c1f)[0x7efe70275c1f]
+/opt/intel/compilers_and_libraries_2018.1.163/linux/compiler/lib/intel64/libiomp5.so(+0xc5c00)[0x7efe702a8c00]
+/lib64/libpthread.so.0(+0x7e25)[0x7efe6fb60e25]
+/lib64/libc.so.6(clone+0x6d)[0x7efe6f88e34d]

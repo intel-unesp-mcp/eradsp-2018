@@ -1,0 +1,1997 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C++ Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 18.0.1.163 Build 20171018
+
+Compiler options: -O3 -fopenmp -fp-model fast=2 -qopt-report=5 -g -xhost -DDOUBLE -o nbody-v3d
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (main(int, char **)) [1/14=7.1%] nbody-v3.cc(129,36)
+  -> EXTERN: (129,36) _vla_free(void *, long)
+  -> EXTERN: (129,36) _vla_free(void *, long)
+  -> EXTERN: (131,15) omp_get_num_devices()
+  -> EXTERN: (137,12) _vla_free(void *, long)
+  -> EXTERN: (137,12) _vla_alloc(long)
+  -> INLINE: (144,5) bodies(size_t) (isz = 229) (sz = 234)
+    -> INLINE: (42,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](std::size_t)
+      -> EXTERN: (37,16) rand()
+    -> INLINE: (43,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](std::size_t)
+      -> EXTERN: (37,16) rand()
+    -> INLINE: (44,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](std::size_t)
+      -> EXTERN: (37,16) rand()
+    -> INLINE: (45,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](std::size_t)
+      -> EXTERN: (37,16) rand()
+    -> INLINE: (46,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](std::size_t)
+      -> EXTERN: (37,16) rand()
+    -> INLINE: (47,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](std::size_t)
+      -> EXTERN: (37,16) rand()
+    -> INLINE: (48,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](std::size_t)
+      -> EXTERN: (37,16) rand()
+  -> EXTERN: (146,5) omp_set_nested(int)
+  -> (148,10) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> (149,10) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> (149,49) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (149,57) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, char) (isz = 3) (sz = 12)
+     [[ Called routine is noinline  <1>]]
+  -> (149,64) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (149,72) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, char) (isz = 3) (sz = 12)
+     [[ Called routine is noinline  <1>]]
+  -> (149,79) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (149,87) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> (150,10) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> (150,48) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (150,58) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, char) (isz = 3) (sz = 12)
+     [[ Called routine is noinline  <1>]]
+  -> (150,65) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (150,75) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, char) (isz = 3) (sz = 12)
+     [[ Called routine is noinline  <1>]]
+  -> (150,82) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (150,92) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> EXTERN: (152,12) _vla_alloc(long)
+  -> EXTERN: (152,12) _vla_free(void *, long)
+  -> EXTERN: (153,17) omp_get_wtime()
+  -> EXTERN: (159,25) omp_get_thread_num()
+  -> EXTERN: (169,29) omp_get_wtime()
+  -> (170,17) Newton(size_t, size_t, size_t, real, int, int) (isz = 236) (sz = 251)
+     [[ Called routine is noinline  <1>]]
+  -> EXTERN: (171,28) omp_get_wtime()
+  -> INLINE (MANUAL): (201,17) computeDisplacements(size_t *, const double *, int) (isz = 101) (sz = 110)
+    -> EXTERN: (117,12) _vla_alloc(long)
+    -> EXTERN: (125,33) round(double)
+    -> EXTERN: (126,5) _vla_free(void *, long)
+  -> EXTERN: (207,10) omp_get_wtime()
+  -> (209,10) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> (210,10) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> (210,49) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (210,57) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, char) (isz = 3) (sz = 12)
+     [[ Called routine is noinline  <1>]]
+  -> (210,64) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (210,72) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, char) (isz = 3) (sz = 12)
+     [[ Called routine is noinline  <1>]]
+  -> (210,79) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (210,87) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> (211,10) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> (211,48) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (211,58) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, char) (isz = 3) (sz = 12)
+     [[ Called routine is noinline  <1>]]
+  -> (211,65) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (211,75) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, char) (isz = 3) (sz = 12)
+     [[ Called routine is noinline  <1>]]
+  -> (211,82) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (211,92) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> (212,10) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> (212,25) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double) (isz = 1) (sz = 10)
+     [[ Called routine is noinline  <1>]]
+  -> (212,31) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *) (isz = 15) (sz = 24)
+     [[ Called routine is noinline  <1>]]
+  -> INLINE: (214,5) cleanBodies() (isz = 41) (sz = 44)
+    -> EXTERN: (52,5) operator delete[](void *)
+    -> EXTERN: (53,5) operator delete[](void *)
+    -> EXTERN: (54,5) operator delete[](void *)
+    -> EXTERN: (55,5) operator delete[](void *)
+    -> EXTERN: (56,5) operator delete[](void *)
+    -> EXTERN: (57,5) operator delete[](void *)
+    -> EXTERN: (58,5) operator delete[](void *)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at nbody-v3.cc(175,17)
+remark #16206: OpenMP multithreaded code generation for CRITICAL was successful
+OpenMP Construct at nbody-v3.cc(182,17)
+remark #16207: OpenMP multithreaded code generation for BARRIER was successful
+
+    Report from: Offload optimizations [offload]
+
+OFFLOAD:main(160,9):  Offload to target MIC <expr>
+ Evaluate length/align/alloc_if/free_if/alloc/into expressions
+   Modifier expression assigned to __offload_alloc_if.107
+   Modifier expression assigned to __offload_free_if.108
+   Modifier expression assigned to __offload_alloc_if.110
+   Modifier expression assigned to __offload_free_if.111
+   Modifier expression assigned to __offload_alloc_if.113
+   Modifier expression assigned to __offload_free_if.114
+   Modifier expression assigned to __offload_alloc_if.116
+   Modifier expression assigned to __offload_free_if.117
+   Modifier expression assigned to __offload_alloc_if.119
+   Modifier expression assigned to __offload_free_if.120
+   Modifier expression assigned to __offload_alloc_if.122
+   Modifier expression assigned to __offload_free_if.123
+   Modifier expression assigned to __offload_alloc_if.125
+   Modifier expression assigned to __offload_free_if.126
+ Data sent from host to target
+       x, pointer to array reference expression with base
+       y, pointer to array reference expression with base
+       z, pointer to array reference expression with base
+       vx, pointer to array reference expression with base
+       vy, pointer to array reference expression with base
+       vz, pointer to array reference expression with base
+       m, pointer to array reference expression with base
+ Data received by host from target
+
+OFFLOAD:main(177,21):  Offload to target MIC <expr>
+ Evaluate length/align/alloc_if/free_if/alloc/into expressions
+   Modifier expression assigned to __offload_alloc_if.128
+   Modifier expression assigned to __offload_free_if.129
+   Modifier expression assigned to __offload_alloc_if.131
+   Modifier expression assigned to __offload_free_if.132
+   Modifier expression assigned to __offload_alloc_if.134
+   Modifier expression assigned to __offload_free_if.135
+   Modifier expression assigned to __offload_alloc_if.137
+   Modifier expression assigned to __offload_free_if.138
+   Modifier expression assigned to __offload_alloc_if.140
+   Modifier expression assigned to __offload_free_if.141
+   Modifier expression assigned to __offload_alloc_if.143
+   Modifier expression assigned to __offload_free_if.144
+ Data sent from host to target
+       __$U27_V$ca, scalar size 8 bytes
+       __$U28_V$cb, scalar size 8 bytes
+       __$U29_V$cc, scalar size 8 bytes
+       __$U2a_V$cd, scalar size 8 bytes
+       __$U2b_V$ce, scalar size 8 bytes
+       __$U2c_V$cf, scalar size 8 bytes
+       __$U2d_V$d0, scalar size 8 bytes
+       __$U2e_V$d1, scalar size 8 bytes
+       __$U2f_V$d2, scalar size 8 bytes
+       __$U30_V$d3, scalar size 8 bytes
+       __$U31_V$d4, scalar size 8 bytes
+       __$U32_V$d5, scalar size 8 bytes
+ Data received by host from target
+       x, pointer to array reference expression with base
+       y, pointer to array reference expression with base
+       z, pointer to array reference expression with base
+       vx, pointer to array reference expression with base
+       vy, pointer to array reference expression with base
+       vz, pointer to array reference expression with base
+
+OFFLOAD:main(188,17):  Offload to target MIC <expr>
+ Evaluate length/align/alloc_if/free_if/alloc/into expressions
+   Modifier expression assigned to __offload_alloc_if.170
+   Modifier expression assigned to __offload_free_if.171
+   Modifier expression assigned to __offload_alloc_if.173
+   Modifier expression assigned to __offload_free_if.174
+   Modifier expression assigned to __offload_alloc_if.176
+   Modifier expression assigned to __offload_free_if.177
+   Modifier expression assigned to __offload_alloc_if.179
+   Modifier expression assigned to __offload_free_if.180
+   Modifier expression assigned to __offload_alloc_if.182
+   Modifier expression assigned to __offload_free_if.183
+   Modifier expression assigned to __offload_alloc_if.185
+   Modifier expression assigned to __offload_free_if.186
+ Data sent from host to target
+       __$U15_V$b3, scalar size 8 bytes
+       __$U16_V$b4, scalar size 8 bytes
+       __$U17_V$b5, scalar size 8 bytes
+       __$U18_V$b6, scalar size 8 bytes
+       __$U19_V$b7, scalar size 8 bytes
+       __$U1a_V$b8, scalar size 8 bytes
+       x, pointer to array reference expression with base
+       y, pointer to array reference expression with base
+       z, pointer to array reference expression with base
+       vx, pointer to array reference expression with base
+       vy, pointer to array reference expression with base
+       vz, pointer to array reference expression with base
+ Data received by host from target
+
+OFFLOAD:main(196,17):  Offload to target MIC <expr>
+ Evaluate length/align/alloc_if/free_if/alloc/into expressions
+   Modifier expression assigned to __offload_alloc_if.188
+   Modifier expression assigned to __offload_free_if.189
+   Modifier expression assigned to __offload_alloc_if.191
+   Modifier expression assigned to __offload_free_if.192
+   Modifier expression assigned to __offload_alloc_if.194
+   Modifier expression assigned to __offload_free_if.195
+   Modifier expression assigned to __offload_alloc_if.197
+   Modifier expression assigned to __offload_free_if.198
+   Modifier expression assigned to __offload_alloc_if.200
+   Modifier expression assigned to __offload_free_if.201
+   Modifier expression assigned to __offload_alloc_if.203
+   Modifier expression assigned to __offload_free_if.204
+ Data sent from host to target
+       __$U1b_V$b9, scalar size 8 bytes
+       __$U1c_V$ba, scalar size 8 bytes
+       __$U1d_V$bb, scalar size 8 bytes
+       __$U1e_V$bc, scalar size 8 bytes
+       __$U1f_V$bd, scalar size 8 bytes
+       __$U20_V$be, scalar size 8 bytes
+       __$U21_V$bf, scalar size 8 bytes
+       __$U22_V$c0, scalar size 8 bytes
+       __$U23_V$c1, scalar size 8 bytes
+       __$U24_V$c2, scalar size 8 bytes
+       __$U25_V$c3, scalar size 8 bytes
+       __$U26_V$c4, scalar size 8 bytes
+       x, pointer to array reference expression with base
+       y, pointer to array reference expression with base
+       z, pointer to array reference expression with base
+       vx, pointer to array reference expression with base
+       vy, pointer to array reference expression with base
+       vz, pointer to array reference expression with base
+ Data received by host from target
+
+OpenMP Construct at nbody-v3.cc(200,17)
+remark #16204: OpenMP multithreaded code generation for SINGLE was successful
+OFFLOAD:main(204,9):  Offload to target MIC <expr>
+ Evaluate length/align/alloc_if/free_if/alloc/into expressions
+   Modifier expression assigned to __offload_alloc_if.206
+   Modifier expression assigned to __offload_free_if.207
+   Modifier expression assigned to __offload_alloc_if.209
+   Modifier expression assigned to __offload_free_if.210
+   Modifier expression assigned to __offload_alloc_if.212
+   Modifier expression assigned to __offload_free_if.213
+   Modifier expression assigned to __offload_alloc_if.215
+   Modifier expression assigned to __offload_free_if.216
+   Modifier expression assigned to __offload_alloc_if.218
+   Modifier expression assigned to __offload_free_if.219
+   Modifier expression assigned to __offload_alloc_if.221
+   Modifier expression assigned to __offload_free_if.222
+   Modifier expression assigned to __offload_alloc_if.224
+   Modifier expression assigned to __offload_free_if.225
+ Data sent from host to target
+ Data received by host from target
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at nbody-v3.cc(157,5)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at nbody-v3.cc(139,5)
+<Peeled loop for vectorization>
+   remark #15389: vectorization support: reference displ[i] has unaligned access   [ nbody-v3.cc(140,9) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15335: peel loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.146
+   remark #25015: Estimate of max trip count of loop=7
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(139,5)
+   remark #15388: vectorization support: reference displ[i] has aligned access   [ nbody-v3.cc(140,9) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.026
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15321: Compiler has chosen to target XMM/YMM vector. Try using -qopt-zmm-usage=high to override
+   remark #15451: unmasked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 26 
+   remark #15477: vector cost: 19.500 
+   remark #15478: estimated potential speedup: 1.260 
+   remark #15482: vectorized math library calls: 1 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(139,5)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference displ[i] has aligned access   [ nbody-v3.cc(140,9) ]
+   remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.149
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(144,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(144,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(144,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(144,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(144,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(144,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(144,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(163,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nbody-v3.cc(118,5) inlined into nbody-v3.cc(201,17)
+      remark #25045: Fused Loops: ( 118 121 )
+
+      remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(119,9) ]
+      remark #15389: vectorization support: reference displ[i+1] has unaligned access   [ nbody-v3.cc(119,21) ]
+      remark #15389: vectorization support: reference displ[i] has unaligned access   [ nbody-v3.cc(119,34) ]
+      remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(122,27) ]
+      remark #15389: vectorization support: reference tth[i] has unaligned access   [ nbody-v3.cc(122,39) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15410: vectorization support: conversion from int to float will be emulated   [ nbody-v3.cc(122,27) ]
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15309: vectorization support: normalized vectorization overhead 0.127
+      remark #15301: FUSED LOOP WAS VECTORIZED
+      remark #15321: Compiler has chosen to target XMM/YMM vector. Try using -qopt-zmm-usage=high to override
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15450: unmasked unaligned unit stride loads: 3 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 41 
+      remark #15477: vector cost: 13.750 
+      remark #15478: estimated potential speedup: 2.770 
+      remark #15486: divides: 1 
+      remark #15487: type converts: 1 
+      remark #15488: --- end vector cost summary ---
+      remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+   LOOP END
+
+   LOOP BEGIN at nbody-v3.cc(121,5) inlined into nbody-v3.cc(201,17)
+      remark #25046: Loop lost in Fusion 
+   LOOP END
+
+   LOOP BEGIN at nbody-v3.cc(118,5) inlined into nbody-v3.cc(201,17)
+   <Remainder loop for vectorization>
+      remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(119,9) ]
+      remark #15389: vectorization support: reference displ[i+1] has unaligned access   [ nbody-v3.cc(119,21) ]
+      remark #15389: vectorization support: reference displ[i] has unaligned access   [ nbody-v3.cc(119,34) ]
+      remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(122,27) ]
+      remark #15389: vectorization support: reference tth[i] has unaligned access   [ nbody-v3.cc(122,39) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15410: vectorization support: conversion from int to float will be emulated   [ nbody-v3.cc(122,27) ]
+      remark #15305: vectorization support: vector length 4
+      remark #15309: vectorization support: normalized vectorization overhead 0.304
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nbody-v3.cc(124,5) inlined into nbody-v3.cc(201,17)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between displ[i+1] (125:9) and displ[i] (125:9)
+      remark #15346: vector dependence: assumed ANTI dependence between displ[i] (125:9) and displ[i+1] (125:9)
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34026: call to memcpy implemented as a call to optimized library version
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34026: call to memcpy implemented as a call to optimized library version
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(119,21):remark #34055: adjacent dense (unit-strided stencil) loads are not optimized. Details: stride { 8 }, step { 8 }, types { I64-V256, I64-V256 }, number of elements { 4 }, select mask { 0x000000003 }.
+nbody-v3.cc(119,21):remark #34055: adjacent dense (unit-strided stencil) loads are not optimized. Details: stride { 8 }, step { 8 }, types { I64-V256, I64-V256 }, number of elements { 4 }, select mask { 0x000000003 }.
+nbody-v3.cc(119,21):remark #34055: adjacent dense (unit-strided stencil) loads are not optimized. Details: stride { 8 }, step { 8 }, types { I64-V256, I64-V256 }, number of elements { 4 }, select mask { 0x000000003 }.
+nbody-v3.cc(119,21):remark #34055: adjacent dense (unit-strided stencil) loads are not optimized. Details: stride { 8 }, step { 8 }, types { I64-V256, I64-V256 }, number of elements { 4 }, select mask { 0x000000003 }.
+nbody-v3.cc(129,36):remark #34051: REGISTER ALLOCATION : [main] nbody-v3.cc:129
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   46[ rax rdx rcx rsi rdi r8-r15 zmm0-zmm31 k1]
+        
+    Routine temporaries
+        Total         :    1065
+            Global    :     236
+            Local     :     829
+        Regenerable   :     325
+        Spilled       :      10
+        
+    Routine stack
+        Variables     :    8848 bytes*
+            Reads     :      42 [3.00e+00 ~ 0.0%]
+            Writes    :     507 [3.30e+03 ~ 5.8%]
+        Spills        :     112 bytes*
+            Reads     :      27 [1.01e+03 ~ 1.8%]
+            Writes    :      19 [3.06e+02 ~ 0.5%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: Newton(size_t, size_t, size_t, real, int, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Newton(size_t, size_t, size_t, real, int, int)) [2/14=14.3%] nbody-v3.cc(69,72)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at nbody-v3.cc(74,5)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Offload optimizations [offload]
+
+OFFLOAD:Newton(73,5):  Offload to target MIC <expr>
+ Evaluate length/align/alloc_if/free_if/alloc/into expressions
+   Modifier expression assigned to __offload_alloc_if.19
+   Modifier expression assigned to __offload_free_if.20
+   Modifier expression assigned to __offload_alloc_if.22
+   Modifier expression assigned to __offload_free_if.23
+   Modifier expression assigned to __offload_alloc_if.25
+   Modifier expression assigned to __offload_free_if.26
+   Modifier expression assigned to __offload_alloc_if.28
+   Modifier expression assigned to __offload_free_if.29
+   Modifier expression assigned to __offload_alloc_if.31
+   Modifier expression assigned to __offload_free_if.32
+   Modifier expression assigned to __offload_alloc_if.34
+   Modifier expression assigned to __offload_free_if.35
+   Modifier expression assigned to __offload_alloc_if.37
+   Modifier expression assigned to __offload_free_if.38
+ Data sent from host to target
+       s, scalar size 8 bytes
+       l, scalar size 8 bytes
+       n, scalar size 8 bytes
+       dtG, scalar size 8 bytes
+       dt, scalar size 8 bytes
+ Data received by host from target
+       x, pointer to array reference expression with base
+       y, pointer to array reference expression with base
+       z, pointer to array reference expression with base
+       m, pointer to array reference expression with base
+       vx, pointer to array reference expression with base
+       vy, pointer to array reference expression with base
+       vz, pointer to array reference expression with base
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at nbody-v3.cc(76,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nbody-v3.cc(77,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nbody-v3.cc(80,13)
+      <Peeled loop for vectorization>
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(81,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(81,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(81,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(83,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 4
+         remark #15309: vectorization support: normalized vectorization overhead 0.350
+         remark #15301: PEEL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nbody-v3.cc(80,13)
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(81,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(81,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(81,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(83,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 4
+         remark #15309: vectorization support: normalized vectorization overhead 0.913
+         remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+         remark #15321: Compiler has chosen to target XMM/YMM vector. Try using -qopt-zmm-usage=high to override
+         remark #15450: unmasked unaligned unit stride loads: 4 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 100 
+         remark #15477: vector cost: 26.000 
+         remark #15478: estimated potential speedup: 3.650 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at nbody-v3.cc(89,13)
+      <Peeled loop for vectorization>
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(90,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(90,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(90,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(92,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 4
+         remark #15309: vectorization support: normalized vectorization overhead 0.350
+         remark #15301: PEEL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nbody-v3.cc(89,13)
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(90,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(90,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(90,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(92,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 4
+         remark #15309: vectorization support: normalized vectorization overhead 0.913
+         remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+         remark #15321: Compiler has chosen to target XMM/YMM vector. Try using -qopt-zmm-usage=high to override
+         remark #15450: unmasked unaligned unit stride loads: 4 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 100 
+         remark #15477: vector cost: 26.000 
+         remark #15478: estimated potential speedup: 3.650 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at nbody-v3.cc(80,13)
+      <Remainder loop for vectorization>
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(81,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(81,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(81,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(83,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 4
+         remark #15309: vectorization support: normalized vectorization overhead 0.350
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nbody-v3.cc(89,13)
+      <Remainder loop for vectorization>
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(90,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(90,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(90,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(92,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 4
+         remark #15309: vectorization support: normalized vectorization overhead 0.350
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(101,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nbody-v3.cc(101,9)
+   <Peeled loop for vectorization>
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *vx[i] has unaligned access   [ nbody-v3.cc(103,21) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *vy[i] has unaligned access   [ nbody-v3.cc(104,21) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *vz[i] has unaligned access   [ nbody-v3.cc(105,21) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: peel loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.255
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at nbody-v3.cc(101,9)
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *vx[i] has unaligned access   [ nbody-v3.cc(103,21) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *vy[i] has unaligned access   [ nbody-v3.cc(104,21) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *vz[i] has unaligned access   [ nbody-v3.cc(105,21) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 4
+      remark #15309: vectorization support: normalized vectorization overhead 1.132
+      remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+      remark #15321: Compiler has chosen to target XMM/YMM vector. Try using -qopt-zmm-usage=high to override
+      remark #15450: unmasked unaligned unit stride loads: 6 
+      remark #15451: unmasked unaligned unit stride stores: 3 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 35 
+      remark #15477: vector cost: 9.500 
+      remark #15478: estimated potential speedup: 3.500 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at nbody-v3.cc(101,9)
+   <Remainder loop for vectorization>
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *vx[i] has unaligned access   [ nbody-v3.cc(103,21) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *vy[i] has unaligned access   [ nbody-v3.cc(104,21) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *vz[i] has unaligned access   [ nbody-v3.cc(105,21) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.255
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (32, 0)
+nbody-v3.cc(69,72):remark #34051: REGISTER ALLOCATION : [_Z6Newtonmmmdii] nbody-v3.cc:69
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   47[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm31 k1]
+        
+    Routine temporaries
+        Total         :     679
+            Global    :     135
+            Local     :     544
+        Regenerable   :     188
+        Spilled       :      38
+        
+    Routine stack
+        Variables     :    2552 bytes*
+            Reads     :       5 [1.28e+01 ~ 0.2%]
+            Writes    :     131 [4.80e+01 ~ 0.9%]
+        Spills        :     352 bytes*
+            Reads     :      82 [1.41e+02 ~ 2.7%]
+            Writes    :      56 [9.32e+01 ~ 1.8%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: std::char_traits<char>::length(const std::char_traits<char>::char_type *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (std::char_traits<char>::length(const std::char_traits<char>::char_type *)) [5/14=35.7%] /usr/include/c++/4.8.5/bits/char_traits.h(259,7)
+  -> EXTERN: (259,16) __builtin_strlen(const char *)
+
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.8.5/bits/char_traits.h(259,7):remark #34051: REGISTER ALLOCATION : [_ZNSt11char_traitsIcE6lengthEPKc] /usr/include/c++/4.8.5/bits/char_traits.h:259
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    3[ rax rdx rdi]
+        
+    Routine temporaries
+        Total         :      12
+            Global    :       7
+            Local     :       5
+        Regenerable   :       0
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: randomFill(real *&, real, real, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (randomFill(real *&, real, real, size_t)) [8/14=57.1%] nbody-v3.cc(33,59)
+  -> EXTERN: (34,18) operator new[](std::size_t)
+  -> EXTERN: (37,16) rand()
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at nbody-v3.cc(36,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(33,59):remark #34051: REGISTER ALLOCATION : [_Z10randomFillRPdddm] nbody-v3.cc:33
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    8[ rax rsi rdi r12-r14 zmm0-zmm1]
+        
+    Routine temporaries
+        Total         :      25
+            Global    :      16
+            Local     :       9
+        Regenerable   :       0
+        Spilled       :       6
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :      32 bytes*
+            Reads     :       5 [1.29e+01 ~ 13.9%]
+            Writes    :       4 [3.80e+00 ~ 4.1%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: bodies(size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (bodies(size_t)) [9/14=64.3%] nbody-v3.cc(41,25)
+  -> INLINE: (42,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](std::size_t)
+    -> EXTERN: (37,16) rand()
+  -> INLINE: (43,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](std::size_t)
+    -> EXTERN: (37,16) rand()
+  -> INLINE: (44,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](std::size_t)
+    -> EXTERN: (37,16) rand()
+  -> INLINE: (45,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](std::size_t)
+    -> EXTERN: (37,16) rand()
+  -> INLINE: (46,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](std::size_t)
+    -> EXTERN: (37,16) rand()
+  -> INLINE: (47,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](std::size_t)
+    -> EXTERN: (37,16) rand()
+  -> INLINE: (48,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](std::size_t)
+    -> EXTERN: (37,16) rand()
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(42,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(43,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(44,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(45,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(46,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(47,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(48,5)
+   remark #15527: loop was not vectorized: function call to rand() cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(41,25):remark #34051: REGISTER ALLOCATION : [_Z6bodiesm] nbody-v3.cc:41
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    9[ rax rdx rdi r12-r15 zmm0-zmm1]
+        
+    Routine temporaries
+        Total         :      90
+            Global    :      62
+            Local     :      28
+        Regenerable   :      13
+        Spilled       :       4
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: cleanBodies()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (cleanBodies()) [10/14=71.4%] nbody-v3.cc(51,20)
+  -> EXTERN: (52,5) operator delete[](void *)
+  -> EXTERN: (53,5) operator delete[](void *)
+  -> EXTERN: (54,5) operator delete[](void *)
+  -> EXTERN: (55,5) operator delete[](void *)
+  -> EXTERN: (56,5) operator delete[](void *)
+  -> EXTERN: (57,5) operator delete[](void *)
+  -> EXTERN: (58,5) operator delete[](void *)
+
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(51,20):remark #34051: REGISTER ALLOCATION : [_Z11cleanBodiesv] nbody-v3.cc:51
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    1[ rdi]
+        
+    Routine temporaries
+        Total         :      20
+            Global    :      13
+            Local     :       7
+        Regenerable   :       0
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: computeDisplacements(size_t *, const double *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (computeDisplacements(size_t *, const double *, int)) [11/14=78.6%] nbody-v3.cc(115,79)
+  -> EXTERN: (117,12) _vla_alloc(long)
+  -> EXTERN: (125,33) round(double)
+  -> EXTERN: (126,5) _vla_free(void *, long)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at nbody-v3.cc(118,5)
+   remark #25045: Fused Loops: ( 118 121 )
+
+   remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(119,9) ]
+   remark #15389: vectorization support: reference displ[i+1] has unaligned access   [ nbody-v3.cc(119,21) ]
+   remark #15389: vectorization support: reference displ[i] has unaligned access   [ nbody-v3.cc(119,34) ]
+   remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(122,27) ]
+   remark #15389: vectorization support: reference tth[i] has unaligned access   [ nbody-v3.cc(122,39) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ nbody-v3.cc(122,27) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.127
+   remark #15301: FUSED LOOP WAS VECTORIZED
+   remark #15321: Compiler has chosen to target XMM/YMM vector. Try using -qopt-zmm-usage=high to override
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 3 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 41 
+   remark #15477: vector cost: 13.750 
+   remark #15478: estimated potential speedup: 2.770 
+   remark #15486: divides: 1 
+   remark #15487: type converts: 1 
+   remark #15488: --- end vector cost summary ---
+   remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(121,5)
+   remark #25046: Loop lost in Fusion 
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(118,5)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(119,9) ]
+   remark #15389: vectorization support: reference displ[i+1] has unaligned access   [ nbody-v3.cc(119,21) ]
+   remark #15389: vectorization support: reference displ[i] has unaligned access   [ nbody-v3.cc(119,34) ]
+   remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(122,27) ]
+   remark #15389: vectorization support: reference tth[i] has unaligned access   [ nbody-v3.cc(122,39) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ nbody-v3.cc(122,27) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.304
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(124,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed FLOW dependence between displ[i+1] (125:9) and displ[i] (125:9)
+   remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34055: adjacent dense (unit-strided stencil) loads are not optimized. Details: stride { 8 }, step { 8 }, types { I64-V256, I64-V256 }, number of elements { 4 }, select mask { 0x000000003 }.
+nbody-v3.cc(119,21):remark #34055: adjacent dense (unit-strided stencil) loads are not optimized. Details: stride { 8 }, step { 8 }, types { I64-V256, I64-V256 }, number of elements { 4 }, select mask { 0x000000003 }.
+nbody-v3.cc(119,21):remark #34055: adjacent dense (unit-strided stencil) loads are not optimized. Details: stride { 8 }, step { 8 }, types { I64-V256, I64-V256 }, number of elements { 4 }, select mask { 0x000000003 }.
+nbody-v3.cc(119,21):remark #34055: adjacent dense (unit-strided stencil) loads are not optimized. Details: stride { 8 }, step { 8 }, types { I64-V256, I64-V256 }, number of elements { 4 }, select mask { 0x000000003 }.
+nbody-v3.cc(115,79):remark #34051: REGISTER ALLOCATION : [_Z20computeDisplacementsPmPKdi] nbody-v3.cc:115
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   27[ rax rdx rcx rsi rdi r8-r11 r15 zmm0-zmm10 zmm16-zmm20 k1]
+        
+    Routine temporaries
+        Total         :     102
+            Global    :      44
+            Local     :      58
+        Regenerable   :       4
+        Spilled       :       1
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)) /usr/include/c++/4.8.5/bits/ios_base.h(158,3)
+
+===========================================================================
+
+Begin optimization report for: __sti__$E()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (__sti__$E()) [14/14=100.0%] <compiler generated>
+  -> EXTERN: /usr/include/c++/4.8.5/iostream:(74,25) __cxa_atexit(void (*)(void *), void *, void *)
+  -> EXTERN: /usr/include/c++/4.8.5/iostream:(74,25) std::ios_base::Init::Init(std::ios_base::Init *)
+
+
+    Report from: Code generation optimizations [cg]
+
+<compiler generated>:remark #34051: REGISTER ALLOCATION : [__sti__$E] (null):0
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    3[ rdx rsi rdi]
+        
+    Routine temporaries
+        Total         :      13
+            Global    :       7
+            Local     :       6
+        Regenerable   :       7
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> The routine declaration is annotated with "__attribute__((noinline))".  
+    Remove this annotation to permit the compiler to inline this routine.
+
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C++ Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 18.0.1.163 Build 20171018
+
+Compiler options:  -O3 -fopenmp -fp-model fast=2 -qopt-report=5 -g -xhost -DDOUBLE -o nbody-v3d
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+*MIC* Begin optimization report for: main(int, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (main(int, char **)) [1/6=16.7%] nbody-v3.cc(129,36)
+  -> EXTERN: (129,36) _vla_free
+  -> EXTERN: (129,36) _vla_free
+  -> EXTERN: (131,15) omp_get_num_devices
+  -> EXTERN: (137,12) _vla_free
+  -> EXTERN: (137,12) _vla_alloc
+  -> INLINE: (144,5) bodies(size_t) (isz = 229) (sz = 234)
+    -> INLINE: (42,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](unsigned long)
+      -> EXTERN: (37,16) rand
+    -> INLINE: (43,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](unsigned long)
+      -> EXTERN: (37,16) rand
+    -> INLINE: (44,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](unsigned long)
+      -> EXTERN: (37,16) rand
+    -> INLINE: (45,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](unsigned long)
+      -> EXTERN: (37,16) rand
+    -> INLINE: (46,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](unsigned long)
+      -> EXTERN: (37,16) rand
+    -> INLINE: (47,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](unsigned long)
+      -> EXTERN: (37,16) rand
+    -> INLINE: (48,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+      -> EXTERN: (34,18) operator new[](unsigned long)
+      -> EXTERN: (37,16) rand
+  -> EXTERN: (146,5) omp_set_nested
+  -> EXTERN: (148,10) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (149,10) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (149,49) std::ostream::operator<<(double)
+  -> EXTERN: (149,57) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char)
+  -> EXTERN: (149,64) std::ostream::operator<<(double)
+  -> EXTERN: (149,72) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char)
+  -> EXTERN: (149,79) std::ostream::operator<<(double)
+  -> EXTERN: (149,87) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (150,10) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (150,48) std::ostream::operator<<(double)
+  -> EXTERN: (150,58) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char)
+  -> EXTERN: (150,65) std::ostream::operator<<(double)
+  -> EXTERN: (150,75) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char)
+  -> EXTERN: (150,82) std::ostream::operator<<(double)
+  -> EXTERN: (150,92) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (152,12) _vla_alloc
+  -> EXTERN: (152,12) _vla_free
+  -> EXTERN: (153,17) omp_get_wtime()
+  -> EXTERN: (159,25) omp_get_thread_num
+  -> EXTERN: (169,29) omp_get_wtime()
+  -> (170,17) Newton(size_t, size_t, size_t, real, int, int) (isz = 236) (sz = 251)
+     [[ Called routine is noinline  <1>]]
+  -> EXTERN: (171,28) omp_get_wtime()
+  -> INLINE (MANUAL): (201,17) computeDisplacements(size_t *, const double *, int) (isz = 101) (sz = 110)
+    -> EXTERN: (117,12) _vla_alloc
+    -> EXTERN: (125,33) round
+    -> EXTERN: (126,5) _vla_free
+  -> EXTERN: (207,10) omp_get_wtime()
+  -> EXTERN: (209,10) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (210,10) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (210,49) std::ostream::operator<<(double)
+  -> EXTERN: (210,57) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char)
+  -> EXTERN: (210,64) std::ostream::operator<<(double)
+  -> EXTERN: (210,72) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char)
+  -> EXTERN: (210,79) std::ostream::operator<<(double)
+  -> EXTERN: (210,87) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (211,10) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (211,48) std::ostream::operator<<(double)
+  -> EXTERN: (211,58) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char)
+  -> EXTERN: (211,65) std::ostream::operator<<(double)
+  -> EXTERN: (211,75) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char)
+  -> EXTERN: (211,82) std::ostream::operator<<(double)
+  -> EXTERN: (211,92) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (212,10) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> EXTERN: (212,25) std::ostream::operator<<(double)
+  -> EXTERN: (212,31) std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+  -> INLINE: (214,5) cleanBodies() (isz = 41) (sz = 44)
+    -> EXTERN: (52,5) operator delete[](void*)
+    -> EXTERN: (53,5) operator delete[](void*)
+    -> EXTERN: (54,5) operator delete[](void*)
+    -> EXTERN: (55,5) operator delete[](void*)
+    -> EXTERN: (56,5) operator delete[](void*)
+    -> EXTERN: (57,5) operator delete[](void*)
+    -> EXTERN: (58,5) operator delete[](void*)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at nbody-v3.cc(175,17)
+remark #16206: OpenMP multithreaded code generation for CRITICAL was successful
+OpenMP Construct at nbody-v3.cc(182,17)
+remark #16207: OpenMP multithreaded code generation for BARRIER was successful
+
+    Report from: Offload optimizations [offload]
+
+OFFLOAD:main(160,9):  Outlined offload region
+ Data received by target from host
+       x, pointer to array reference expression with base
+       y, pointer to array reference expression with base
+       z, pointer to array reference expression with base
+       vx, pointer to array reference expression with base
+       vy, pointer to array reference expression with base
+       vz, pointer to array reference expression with base
+       m, pointer to array reference expression with base
+ Data sent from target to host
+
+OFFLOAD:main(177,21):  Outlined offload region
+ Data received by target from host
+       __$U27_V$bd, scalar size 8 bytes
+       __$U28_V$be, scalar size 8 bytes
+       __$U29_V$bf, scalar size 8 bytes
+       __$U2a_V$c0, scalar size 8 bytes
+       __$U2b_V$c1, scalar size 8 bytes
+       __$U2c_V$c2, scalar size 8 bytes
+       __$U2d_V$c3, scalar size 8 bytes
+       __$U2e_V$c4, scalar size 8 bytes
+       __$U2f_V$c5, scalar size 8 bytes
+       __$U30_V$c6, scalar size 8 bytes
+       __$U31_V$c7, scalar size 8 bytes
+       __$U32_V$c8, scalar size 8 bytes
+ Data sent from target to host
+       x, pointer to array reference expression with base
+       y, pointer to array reference expression with base
+       z, pointer to array reference expression with base
+       vx, pointer to array reference expression with base
+       vy, pointer to array reference expression with base
+       vz, pointer to array reference expression with base
+
+OFFLOAD:main(188,17):  Outlined offload region
+ Data received by target from host
+       __$U15_V$a6, scalar size 8 bytes
+       __$U16_V$a7, scalar size 8 bytes
+       __$U17_V$a8, scalar size 8 bytes
+       __$U18_V$a9, scalar size 8 bytes
+       __$U19_V$aa, scalar size 8 bytes
+       __$U1a_V$ab, scalar size 8 bytes
+       x, pointer to array reference expression with base
+       y, pointer to array reference expression with base
+       z, pointer to array reference expression with base
+       vx, pointer to array reference expression with base
+       vy, pointer to array reference expression with base
+       vz, pointer to array reference expression with base
+ Data sent from target to host
+
+OFFLOAD:main(196,17):  Outlined offload region
+ Data received by target from host
+       __$U1b_V$ac, scalar size 8 bytes
+       __$U1c_V$ad, scalar size 8 bytes
+       __$U1d_V$ae, scalar size 8 bytes
+       __$U1e_V$af, scalar size 8 bytes
+       __$U1f_V$b0, scalar size 8 bytes
+       __$U20_V$b1, scalar size 8 bytes
+       __$U21_V$b2, scalar size 8 bytes
+       __$U22_V$b3, scalar size 8 bytes
+       __$U23_V$b4, scalar size 8 bytes
+       __$U24_V$b5, scalar size 8 bytes
+       __$U25_V$b6, scalar size 8 bytes
+       __$U26_V$b7, scalar size 8 bytes
+       x, pointer to array reference expression with base
+       y, pointer to array reference expression with base
+       z, pointer to array reference expression with base
+       vx, pointer to array reference expression with base
+       vy, pointer to array reference expression with base
+       vz, pointer to array reference expression with base
+ Data sent from target to host
+
+OpenMP Construct at nbody-v3.cc(200,17)
+remark #16204: OpenMP multithreaded code generation for SINGLE was successful
+OFFLOAD:main(204,9):  Outlined offload region
+ Data received by target from host
+ Data sent from target to host
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at nbody-v3.cc(157,5)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+nbody-v3.cc(204,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+nbody-v3.cc(196,17):remark #34026: call to memcpy implemented as a call to optimized library version
+nbody-v3.cc(196,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+nbody-v3.cc(188,17):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+nbody-v3.cc(177,21):remark #34026: call to memcpy implemented as a call to optimized library version
+nbody-v3.cc(177,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+nbody-v3.cc(160,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+nbody-v3.cc(129,36):remark #34051: REGISTER ALLOCATION : [main] nbody-v3.cc:129
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   23[ rax rdx rcx rsi rdi r8-r15 zmm0-zmm1 zmm16-zmm23]
+        
+    Routine temporaries
+        Total         :     228
+            Global    :      11
+            Local     :     217
+        Regenerable   :      93
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :    5224 bytes*
+            Reads     :      12 [6.04e+02 ~ 2.4%]
+            Writes    :      39 [3.30e+03 ~ 13.3%]
+        Spills        :      32 bytes*
+            Reads     :      28 [1.21e+03 ~ 4.9%]
+            Writes    :      28 [1.21e+03 ~ 4.9%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+*MIC* Begin optimization report for: Newton(size_t, size_t, size_t, real, int, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Newton(size_t, size_t, size_t, real, int, int)) [2/6=33.3%] nbody-v3.cc(69,72)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at nbody-v3.cc(74,5)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Offload optimizations [offload]
+
+OFFLOAD:_Z6Newtonmmmdii(73,5):  Outlined offload region
+ Data received by target from host
+       s, scalar size 8 bytes
+       l, scalar size 8 bytes
+       n, scalar size 8 bytes
+       dtG, scalar size 8 bytes
+       dt, scalar size 8 bytes
+ Data sent from target to host
+       x, pointer to array reference expression with base
+       y, pointer to array reference expression with base
+       z, pointer to array reference expression with base
+       m, pointer to array reference expression with base
+       vx, pointer to array reference expression with base
+       vy, pointer to array reference expression with base
+       vz, pointer to array reference expression with base
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at nbody-v3.cc(76,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nbody-v3.cc(77,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nbody-v3.cc(80,13)
+      <Peeled loop for vectorization>
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(81,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(81,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(81,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(83,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 0.350
+         remark #15301: PEEL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nbody-v3.cc(80,13)
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(81,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(81,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(81,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(83,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 1.087
+         remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15450: unmasked unaligned unit stride loads: 4 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 100 
+         remark #15477: vector cost: 13.000 
+         remark #15478: estimated potential speedup: 7.020 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at nbody-v3.cc(80,13)
+      <Remainder loop for vectorization>
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(81,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(81,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(81,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(83,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 0.350
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nbody-v3.cc(89,13)
+      <Peeled loop for vectorization>
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(90,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(90,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(90,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(92,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 0.350
+         remark #15301: PEEL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nbody-v3.cc(89,13)
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(90,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(90,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(90,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(92,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 1.087
+         remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15450: unmasked unaligned unit stride loads: 4 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 100 
+         remark #15477: vector cost: 13.000 
+         remark #15478: estimated potential speedup: 7.020 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at nbody-v3.cc(89,13)
+      <Remainder loop for vectorization>
+         remark #15389: vectorization support: reference *x[j] has unaligned access   [ nbody-v3.cc(90,27) ]
+         remark #15389: vectorization support: reference *y[j] has unaligned access   [ nbody-v3.cc(90,45) ]
+         remark #15389: vectorization support: reference *z[j] has unaligned access   [ nbody-v3.cc(90,63) ]
+         remark #15389: vectorization support: reference *m[j] has unaligned access   [ nbody-v3.cc(92,35) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 0.350
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(101,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nbody-v3.cc(101,9)
+   <Peeled loop for vectorization>
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *vx[i] has unaligned access   [ nbody-v3.cc(103,21) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *vy[i] has unaligned access   [ nbody-v3.cc(104,21) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *vz[i] has unaligned access   [ nbody-v3.cc(105,21) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: peel loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.255
+      remark #25015: Estimate of max trip count of loop=7
+   LOOP END
+
+   LOOP BEGIN at nbody-v3.cc(101,9)
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *vx[i] has unaligned access   [ nbody-v3.cc(103,21) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *vy[i] has unaligned access   [ nbody-v3.cc(104,21) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *vz[i] has unaligned access   [ nbody-v3.cc(105,21) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 1.132
+      remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15450: unmasked unaligned unit stride loads: 6 
+      remark #15451: unmasked unaligned unit stride stores: 3 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 35 
+      remark #15477: vector cost: 4.750 
+      remark #15478: estimated potential speedup: 6.710 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at nbody-v3.cc(101,9)
+   <Remainder loop for vectorization>
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *(*x+i*8) has unaligned access   [ nbody-v3.cc(103,13) ]
+      remark #15389: vectorization support: reference *vx[i] has unaligned access   [ nbody-v3.cc(103,21) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *(*y+i*8) has unaligned access   [ nbody-v3.cc(104,13) ]
+      remark #15389: vectorization support: reference *vy[i] has unaligned access   [ nbody-v3.cc(104,21) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *(*z+i*8) has unaligned access   [ nbody-v3.cc(105,13) ]
+      remark #15389: vectorization support: reference *vz[i] has unaligned access   [ nbody-v3.cc(105,21) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.268
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+nbody-v3.cc(73,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+nbody-v3.cc(69,72):remark #34051: REGISTER ALLOCATION : [_Z6Newtonmmmdii] nbody-v3.cc:69
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   47[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm31 k1]
+        
+    Routine temporaries
+        Total         :     766
+            Global    :     162
+            Local     :     604
+        Regenerable   :     182
+        Spilled       :      31
+        
+    Routine stack
+        Variables     :    1508 bytes*
+            Reads     :      31 [3.88e+01 ~ 0.6%]
+            Writes    :      56 [8.80e+01 ~ 1.5%]
+        Spills        :     344 bytes*
+            Reads     :      86 [1.36e+02 ~ 2.3%]
+            Writes    :      54 [5.29e+01 ~ 0.9%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+*MIC* Begin optimization report for: randomFill(real *&, real, real, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (randomFill(real *&, real, real, size_t)) [3/6=50.0%] nbody-v3.cc(33,59)
+  -> EXTERN: (34,18) operator new[](unsigned long)
+  -> EXTERN: (37,16) rand
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at nbody-v3.cc(36,5)
+   remark #15527: loop was not vectorized: function call to rand cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(33,59):remark #34051: REGISTER ALLOCATION : [_Z10randomFillRPdddm] nbody-v3.cc:33
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   11[ rax rsi rdi r12-r14 zmm0-zmm4]
+        
+    Routine temporaries
+        Total         :      31
+            Global    :      16
+            Local     :      15
+        Regenerable   :       2
+        Spilled       :       6
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :      48 bytes*
+            Reads     :       7 [1.49e+01 ~ 14.8%]
+            Writes    :       6 [5.80e+00 ~ 5.8%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+*MIC* Begin optimization report for: bodies(size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (bodies(size_t)) [4/6=66.7%] nbody-v3.cc(41,25)
+  -> INLINE: (42,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](unsigned long)
+    -> EXTERN: (37,16) rand
+  -> INLINE: (43,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](unsigned long)
+    -> EXTERN: (37,16) rand
+  -> INLINE: (44,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](unsigned long)
+    -> EXTERN: (37,16) rand
+  -> INLINE: (45,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](unsigned long)
+    -> EXTERN: (37,16) rand
+  -> INLINE: (46,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](unsigned long)
+    -> EXTERN: (37,16) rand
+  -> INLINE: (47,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](unsigned long)
+    -> EXTERN: (37,16) rand
+  -> INLINE: (48,5) randomFill(real *&, real, real, size_t) (isz = 27) (sz = 38)
+    -> EXTERN: (34,18) operator new[](unsigned long)
+    -> EXTERN: (37,16) rand
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(42,5)
+   remark #15527: loop was not vectorized: function call to rand cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(43,5)
+   remark #15527: loop was not vectorized: function call to rand cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(44,5)
+   remark #15527: loop was not vectorized: function call to rand cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(45,5)
+   remark #15527: loop was not vectorized: function call to rand cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(46,5)
+   remark #15527: loop was not vectorized: function call to rand cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(47,5)
+   remark #15527: loop was not vectorized: function call to rand cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(36,5) inlined into nbody-v3.cc(48,5)
+   remark #15527: loop was not vectorized: function call to rand cannot be vectorized   [ nbody-v3.cc(37,16) ]
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(41,25):remark #34051: REGISTER ALLOCATION : [_Z6bodiesm] nbody-v3.cc:41
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    9[ rax rdx rdi r12-r15 zmm0-zmm1]
+        
+    Routine temporaries
+        Total         :      90
+            Global    :      62
+            Local     :      28
+        Regenerable   :      13
+        Spilled       :       4
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :      32 bytes*
+            Reads     :      15 [1.37e+01 ~ 2.9%]
+            Writes    :      15 [1.37e+01 ~ 2.9%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+*MIC* Begin optimization report for: cleanBodies()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (cleanBodies()) [5/6=83.3%] nbody-v3.cc(51,20)
+  -> EXTERN: (52,5) operator delete[](void*)
+  -> EXTERN: (53,5) operator delete[](void*)
+  -> EXTERN: (54,5) operator delete[](void*)
+  -> EXTERN: (55,5) operator delete[](void*)
+  -> EXTERN: (56,5) operator delete[](void*)
+  -> EXTERN: (57,5) operator delete[](void*)
+  -> EXTERN: (58,5) operator delete[](void*)
+
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(51,20):remark #34051: REGISTER ALLOCATION : [_Z11cleanBodiesv] nbody-v3.cc:51
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    1[ rdi]
+        
+    Routine temporaries
+        Total         :      20
+            Global    :      13
+            Local     :       7
+        Regenerable   :       0
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+*MIC* Begin optimization report for: computeDisplacements(size_t *, const double *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (computeDisplacements(size_t *, const double *, int)) [6/6=100.0%] nbody-v3.cc(115,79)
+  -> EXTERN: (117,12) _vla_alloc
+  -> EXTERN: (125,33) round
+  -> EXTERN: (126,5) _vla_free
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at nbody-v3.cc(118,5)
+   remark #25045: Fused Loops: ( 118 121 )
+
+   remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(119,9) ]
+   remark #15389: vectorization support: reference displ[i+1] has unaligned access   [ nbody-v3.cc(119,21) ]
+   remark #15389: vectorization support: reference displ[i] has unaligned access   [ nbody-v3.cc(119,34) ]
+   remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(122,27) ]
+   remark #15389: vectorization support: reference tth[i] has unaligned access   [ nbody-v3.cc(122,39) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ nbody-v3.cc(122,27) ]
+   remark #15305: vectorization support: vector length 16
+   remark #15309: vectorization support: normalized vectorization overhead 0.346
+   remark #15301: FUSED LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 3 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 41 
+   remark #15477: vector cost: 6.680 
+   remark #15478: estimated potential speedup: 5.640 
+   remark #15486: divides: 1 
+   remark #15487: type converts: 1 
+   remark #15488: --- end vector cost summary ---
+   remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(121,5)
+   remark #25046: Loop lost in Fusion 
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(118,5)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(119,9) ]
+   remark #15389: vectorization support: reference displ[i+1] has unaligned access   [ nbody-v3.cc(119,21) ]
+   remark #15389: vectorization support: reference displ[i] has unaligned access   [ nbody-v3.cc(119,34) ]
+   remark #15388: vectorization support: reference length[i] has aligned access   [ nbody-v3.cc(122,27) ]
+   remark #15389: vectorization support: reference tth[i] has unaligned access   [ nbody-v3.cc(122,39) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ nbody-v3.cc(122,27) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15309: vectorization support: normalized vectorization overhead 0.269
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nbody-v3.cc(124,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed FLOW dependence between displ[i+1] (125:9) and displ[i] (125:9)
+   remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34055: adjacent dense (unit-strided stencil) loads are not optimized. Details: stride { 8 }, step { 8 }, types { I64-V512, I64-V512 }, number of elements { 8 }, select mask { 0x000000003 }.
+nbody-v3.cc(119,21):remark #34060: alignment of adjacent dense (unit-strided stencil) loads is (alignment, offset): (1, 0)
+nbody-v3.cc(119,21):remark #34050: adjacent dense (unit-strided stencil) loads seem unprofitable to optimize.
+nbody-v3.cc(119,21):remark #34055: adjacent dense (unit-strided stencil) loads are not optimized. Details: stride { 8 }, step { 8 }, types { I64-V512, I64-V512 }, number of elements { 8 }, select mask { 0x000000003 }.
+nbody-v3.cc(115,79):remark #34051: REGISTER ALLOCATION : [_Z20computeDisplacementsPmPKdi] nbody-v3.cc:115
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   63[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm31 k0-k7]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   46[ rax rdx rcx rsi rdi r8-r11 r14-r15 zmm0-zmm31 k1-k3]
+        
+    Routine temporaries
+        Total         :     287
+            Global    :      54
+            Local     :     233
+        Regenerable   :      12
+        Spilled       :       9
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :     464 bytes*
+            Reads     :       9 [3.28e+01 ~ 2.5%]
+            Writes    :       9 [8.20e+00 ~ 0.6%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> The routine declaration is annotated with "__attribute__((noinline))".  
+    Remove this annotation to permit the compiler to inline this routine.
+
