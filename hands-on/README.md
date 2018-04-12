@@ -57,6 +57,9 @@ Run application on KNL and on Skylake
 time ./am_call_vp 
 ```
 
+What execution presents the best execution time?
+
+
 ## 1.5 Transposition
 
 Run transposition using MCDRAM on KNL
