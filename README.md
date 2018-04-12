@@ -7,9 +7,16 @@ ssh -X traineeN@SKYLAKE-SERVER
 ssh -X traineeN@KNL-SERVER 
 ```
 
-Execute the following three activities on each server (KNL and Skylake)
+After login on each server execute the following line to setup the environment to use Intel Parallel Studio:
+```
+source /opt/intel/parallel_studio_xe_2018/psxevars.sh intel64
+```
 
-The utility lscpu shows information about the CPU architecture. Use this utility to obtain the number of cores and threads available on each node of Heterogeneous cluster. 
+# 1. Parallel Architecure 
+
+Execute the following activities on each server (KNL and Skylake):
+
+## 1.1. The utility lscpu shows information about the CPU architecture. Use this utility to obtain the number of cores and threads available on each node of Heterogeneous cluster. 
  
 ```
 lscpu 
@@ -17,14 +24,14 @@ lscpu
 
 **How many cores/threads are available?**
 
-the utility numactl maps processes to specific NUMA nodes. Use this utility with the parameter -H to obtain information about the NUMA nodes in the system. 
+## 1.2. The utility numactl maps processes to specific NUMA nodes. Use this utility with the parameter -H to obtain information about the NUMA nodes in the system. 
  
 ```
 numactl -H 
 ```
 **How many numa nodes are available**
  
-The utility shows a hierarchical map of key computing elements, such as: NUMA memory nodes, shared caches, processor sockets and processor cores.
+## 1.3. The utility shows a hierarchical map of key computing elements, such as: NUMA memory nodes, shared caches, processor sockets and processor cores.
 
 ```
 lstopo
@@ -32,6 +39,10 @@ lstopo
 
 **How many levels contains the memory systems? What is the size of each level?**
 
+
+# 1. Parallel Offload
+
+Execute the following activities on Skylake:
 Offload
 
 icc -qopenmp testHW.c -o testHW
