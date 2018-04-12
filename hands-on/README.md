@@ -113,9 +113,26 @@ export OFFLOAD_NODES=10.0.0.7
 
 ## 2.2 Test with Offload Data Transfer
 
-execute program
+execute program without offload
 
 ```
+cd src/matrix/linux
+make clean ; make icc
+./matrix.icc 
+```
+
+put entire code of function **multiply5** inside the following block:
+```
+  #pragma omp target device(0) map(a[0:NUM][0:NUM]) map(b[0:NUM][0:NUM]) map(c[0:NUM][0:NUM])
+  {
+      function void multiply5 (line 323)
+  } 
+```
+
+Execute program with offload
+
+```
+export OFFLOAD_NODES=10.0.0.5,10.0.0.6,10.0.0.7,10.0.0.4
 cd src/matrix/linux
 make clean ; make icc
 export OFFLOAD_REPORT=2
