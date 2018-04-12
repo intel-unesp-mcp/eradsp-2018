@@ -113,9 +113,13 @@ export OFFLOAD_NODES=10.0.0.7
 
 ## 2.2 Test with Offload Data Transfer
 
-compiling openmp
-
 execute program
 
-put target pragma on simple application
+```
+cd src/matrix/linux
+make clean ; make icc
+export OFFLOAD_REPORT=2
+./matrix.icc 
+```
 
+How many bytes was transfered from host do device?
