@@ -92,21 +92,20 @@ icc -qopenmp testHW.c -o testHW
 Setup the list of nodes to receive offloaded code
 
 ```
-export OFFLOAD_NODES=10.0.0.5
+export OFFLOAD_NODES=10.0.0.6
 ```
+
 Run the application
+
 ```
 ./testHW 
-Running on host: phi01.ncc.unesp.br
-Running on target: phi05
 ```
 
 Change the list of nodes to receive offloaded code and run the application again
+
 ```
-export OFFLOAD_NODES=10.0.0.6
+export OFFLOAD_NODES=10.0.0.7
 ./testHW 
-Running on host: phi01.ncc.unesp.br
-Running on target: phi06
 ```
 
 ## 2.2 Test with Offload Data Transfer
