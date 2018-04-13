@@ -61,6 +61,10 @@ What execution presents the best execution time?
 
 
 ## 1.5 Transposition
+Compile application
+```
+make runme-CPU
+```
 
 Run transposition using MCDRAM on KNL
 
