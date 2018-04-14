@@ -67,13 +67,13 @@ LDFLAGS= -ltbbmalloc
 all: am_call_ss am_call_vs am_call_sp am_call_vp am_call_original am_call_vector am_call_knc
 
 am_call_ss: am_call.cpp 
-	$(CXX) $(LDFLAGS) -xHOST -openmp-stubs -no-vec -DSCALAR -unroll0 $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
+	$(CXX) $(LDFLAGS) -xHOST -qopenmp-stubs -no-vec -DSCALAR -unroll0 $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
 
 am_call_vs: am_call.cpp 
-	$(CXX) $(LDFLAGS) -xHOST -openmp-stubs -unroll0 $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
+	$(CXX) $(LDFLAGS) -xHOST -qopenmp-stubs -unroll0 $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
 
 am_call_sp: am_call.cpp 
-	$(CXX) $(LDFLAGS) -xHOST -openmp -DSCALAR -no-vec -unroll0 $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
+	$(CXX) $(LDFLAGS) -xHOST -qopenmp -DSCALAR -no-vec -unroll0 $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
 
 am_call_vp: am_call.cpp 
 	$(CXX) $(LDFLAGS) -xHOST -qopenmp $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
@@ -85,6 +85,6 @@ am_call_vector: am_call_vector.cpp
 	$(CXX) $(LDFLAGS) -xCORE_AVX2 $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
 
 am_call_knc: am_call.cpp 
-	$(CXX) $(LDFLAGS) -xhost -openmp $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
+	$(CXX) $(LDFLAGS) -xhost -qopenmp $(CXXFLAGS) -DCOMPILER_VERSION=\"$(COMPILER_VERSION)\" -o $@ $^
 clean:
 	rm -r -f am_call_ss am_call_vs am_call_sp am_call_vp am_call_original am_call_vector am_call_knc
