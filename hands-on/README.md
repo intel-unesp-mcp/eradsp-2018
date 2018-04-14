@@ -115,7 +115,7 @@ $ icc -qopenmp testHW.c -o testHW
 **Setup** the list of nodes to receive offloaded code:
 
 ```
-$export OFFLOAD_NODES=10.0.0.6
+$ export OFFLOAD_NODES=10.0.0.6
 ```
 
 **Run** the application:
