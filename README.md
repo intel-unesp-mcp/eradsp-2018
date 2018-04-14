@@ -13,11 +13,13 @@ $ ./nbody-v3d
 ```
 $ cd src/transpose-ab
 ```
-Run with **malloc**:
+**Compile** and **run** with **malloc**:
 ```
 $ icc -g -O3 -qopenmp transpose-ab-malloc.c -o transpose-ab-malloc.o
+$ ./transpose-ab-malloc.o 45000
 ```
-Run with **hbw_malloc**:
+**Compile** and **run** with **hbw_malloc**:
 ```
 $ icc -g -O3 -qopenmp -lmemkind transpose-ab-hbwmalloc.c -o transpose-ab-hbwmalloc.o
+$ ./transpose-ab-hbwmalloc.o 45000
 ```
