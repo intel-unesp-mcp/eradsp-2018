@@ -11,6 +11,10 @@ After login on each server execute the following line to setup the environment t
 ```
 $ source /opt/intel/parallel_studio_xe_2018/psxevars.sh intel64
 ```
+**Clone** Hands-on repository:
+```
+$ git clone https://github.com/intel-unesp-mcp/eradsp-2018.git && cd eradsp-2018
+```
 
 # 1. Parallel Architecure 
 
@@ -49,7 +53,7 @@ $ lstopo
 
 **Change** to Option Price dir:
 ```
-$ cd ../src/option-price
+$ cd src/option-price
 ```
 
 **Compile** Option Price:
