@@ -136,7 +136,7 @@ $ ./testHW
 **Execute** program without offload:
 
 ```
-$ cd /matrix/linux
+$ cd matrix/linux
 $ make clean ; make icc
 $ ./matrix.icc 
 ```
