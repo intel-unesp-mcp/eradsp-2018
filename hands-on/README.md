@@ -136,6 +136,7 @@ $ ./testHW
 **Execute** program without offload:
 
 ```
+$ unset OFFLOAD_NODES
 $ cd matrix/linux
 $ make clean ; make icc
 $ ./matrix.icc 
